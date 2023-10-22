@@ -1,0 +1,19 @@
+- name: Check if an application is installed
+  stat:
+    path: "/Applications/{{ item.app }}"
+  register: app_check
+  loop: "{{ applications_to_install }}"
+  check_mode: no
+  tags:
+    - core
+    - mac
+    - application
+
+- name: Install the application with Homebrew
+  command: "brew install {{ item.1.brew }}"
+  with_indexed_items: "{{ applications_to_install }}"
+  when: not app_check.results[item.0].stat.exists
+  tags:
+    - core
+    - mac
+    - application
