@@ -6,8 +6,17 @@
     update: yes
     accept_hostkey: yes
     version: main
+    key_file: "{{ lookup('env', 'HOME') }}/.ssh/github_ed25519"
   tags:
     - dotfiles
+
+# Forces the stow command to link at a different level
+# Otherwise causes some weird git issues with dotfiles repo
+- name: Create directories
+  shell: |
+    mkdir ~/.config/zsh
+    mkdir ~/.local/bin/
+
 - name: Stow dotfiles
   shell: cd $HOME/.dotfiles && ./mac
   tags:
