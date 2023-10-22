@@ -2,41 +2,21 @@
 - name: Install community.general collection
   command: ansible-galaxy collection install community.general
   tags:
-    - core
     - mac
-
-#- name: Install Homebrew
-#  homebrew:
-#    state: present
-#  register: homebrew_installed
-#  tags:
-#    - core
-#    - mac
-
-#- name: Install Homebrew
-#  command: /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
-#  when: brew_installed.stat.exists == false
-
-#- name: Update Homebrew
-#  homebrew:
-#    update_homebrew: true
-#    upgrade_all: true
-#  tags:
-#    - core
-#    - mac
+    - homebrew
 
 - name: Install Terminal Utils
   homebrew:
     name: ["asdf", "coreutils", "cowsay", "curl", "fzf", "gnupg", "gnutls", "grpcurl", "htop", "jq", "ripgrep", "stow", "tree", "watch", "wget", "zsh", "zstd"]
     state: present
   tags:
-    - core
     - mac
+    - homebrew
 
 - name: Install Other Tools
   homebrew:
     name: ["direnv", "docker", "docker-completion", "fd", "lua", "neovim", "node", "python", "tmux", "tree-sitter", "vim", "yarn"]
     state: present
   tags:
-    - core
     - mac
+    - homebrew
