@@ -1,0 +1,22 @@
+- name: check if Alacritty App Exists
+  stat: 
+    path: /Applications/Alacritty.app/
+  register: alacritty_app
+  tags:
+    - mac
+    - application
+    - alacritty
+
+- name: Install Alacritty Terminal
+  command: |
+    git clone https://github.com/alacritty/alacritty.git ~/alacritty
+    cd ~/alacritty
+    rustup override set stable
+    rustup update stable
+    make app
+    cp -r target/release/osx/Alacritty.app /Applications/
+  when: not alacritty_app.stat.exists
+  tags:
+    - mac
+    - application
+    - alacritty

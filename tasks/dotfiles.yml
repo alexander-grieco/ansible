@@ -12,4 +12,5 @@
   shell: cd $HOME/.dotfiles && ./mac
   tags:
     - dotfiles
+    - mac
     - stow
