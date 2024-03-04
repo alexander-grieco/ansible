@@ -15,7 +15,7 @@
 
 - name: Install Other Tools
   homebrew:
-    name: ["direnv", "docker", "docker-completion", "fd", "lua", "neovim", "node", "pdsh", "python", "scdoc", "tmux", "tree-sitter", "vim", "yarn"]
+    name: ["direnv", "docker", "docker-completion", "fd", "gnu-sed", "lua", "lua-language-server", "neovim", "node", "pdsh", "python", "scdoc", "tmux", "tree-sitter", "vim", "yarn"]
     state: present
   tags:
     - mac
