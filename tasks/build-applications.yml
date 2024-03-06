@@ -1,12 +1,11 @@
 - name: check if Alacritty App Exists
-  stat: 
+  stat:
     path: /Applications/Alacritty.app/
   register: alacritty_app
   tags:
     - mac
     - application
     - alacritty
-
 - name: Install Alacritty Terminal
   command: |
     git clone https://github.com/alacritty/alacritty.git ~/alacritty

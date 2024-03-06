@@ -1,31 +1,31 @@
 - hosts: localhost
   vars:
-    source_key: "./.ssh/github_ed25519"
-    dest_key: "{{ lookup('env', 'HOME') }}/.ssh/github_ed25519"
+    source_key: ./.ssh/github_ed25519
+    dest_key: '{{ lookup(''env'', ''HOME'') }}/.ssh/github_ed25519'
     applications_to_install:
-      - app: "1Password.app"
-        brew: "1password"
-      - app: "Arc.app"
-        brew: "arc"
-      - app: "iTerm.app"
-        brew: "iterm2"
-      - app: "Obsidian.app"
-        brew: "obsidian"
-      - app: "Raycast.app"
-        brew: "raycast"
-      - app: "Slack.app"
-        brew: "slack"
-      - app: "Sol.app"
-        brew: "sol"
+      - app: 1Password.app
+        brew: 1password
+      - app: Arc.app
+        brew: arc
+      - app: iTerm.app
+        brew: iterm2
+      - app: Obsidian.app
+        brew: obsidian
+      - app: Raycast.app
+        brew: raycast
+      - app: Slack.app
+        brew: slack
+      - app: Sol.app
+        brew: sol
   pre_tasks:
-  - name: Update Apt
-    become: true
-    apt:
-      force_apt_get: true
-      update_cache: true
-      state: present
-    tags:
-      - linux
+    - name: Update Apt
+      become: true
+      apt:
+        force_apt_get: true
+        update_cache: true
+        state: present
+      tags:
+        - linux
   tasks:
     - import_tasks: tasks/ssh.yml
     - import_tasks: tasks/homebrew.yml

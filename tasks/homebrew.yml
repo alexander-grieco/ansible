@@ -4,19 +4,58 @@
   tags:
     - mac
     - homebrew
-
 - name: Install Terminal Utils
   homebrew:
-    name: ["asdf", "coreutils", "cowsay", "curl", "fzf", "gnupg", "gnutls", "grpcurl", "htop", "jq", "ripgrep", "stow", "tree", "watch", "wget", "zsh", "zstd"]
+    name:
+      - asdf
+      - coreutils
+      - cowsay
+      - curl
+      - fzf
+      - gnupg
+      - gnutls
+      - golang
+      - grpcurl
+      - htop
+      - jq
+      - ripgrep
+      - stow
+      - tree
+      - watch
+      - wget
+      - zsh
+      - zstd
     state: present
   tags:
     - mac
     - homebrew
-
 - name: Install Other Tools
   homebrew:
-    name: ["direnv", "docker", "docker-completion", "fd", "gnu-sed", "lua", "lua-language-server", "neovim", "node", "pdsh", "python", "scdoc", "tmux", "tree-sitter", "vim", "yarn"]
+    name:
+      - direnv
+      - docker
+      - docker-completion
+      - fd
+      - gnu-sed
+      - hashicorp/tap/terraform-ls
+      - lua
+      - lua-language-server
+      - neovim
+      - node
+      - pdsh
+      - python
+      - scdoc
+      - tflint
+      - tmux
+      - tree-sitter
+      - vim
+      - yarn
     state: present
+  tags:
+    - mac
+    - homebrew
+- name: Install goimports
+  command: go install golang.org/x/tools/cmd/goimports@v0.19.0
   tags:
     - mac
     - homebrew
