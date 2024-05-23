@@ -1,0 +1,53 @@
+- name: Install arch packages
+  community.general.pacman:
+    name:
+      - alacritty
+      - obsidian
+      - asdf
+      - coreutils
+      - cowsay
+      - curl
+      - fzf
+      - gnupg
+      - gnutls
+      - golang
+      - grpcurl
+      - htop
+      - jq
+      - ripgrep
+      - tree
+      - watch
+      - wget
+      - zsh
+      - zstd
+      - direnv
+      - docker
+      - docker-completion
+      - fd
+      - otf-comicshanns-nerd
+      - gnu-sed
+      - lua
+      - lua-language-server
+      - neovim
+      - node
+      - pdsh
+      - python
+      - scdoc
+      - tflint
+      - tmux
+      - tree-sitter
+      - vim
+      - yarn
+    state: present
+  tags:
+    - arch
+- name: Install 1password
+  shell: |
+    curl -sS https://downloads.1password.com/linux/keys/1password.asc | gpg --import
+    git clone https://aur.archlinux.org/1password.git
+    cd 1password
+    makepkg -si
+    cd ..
+    rm -rf 1password
+  tags:
+    - arch

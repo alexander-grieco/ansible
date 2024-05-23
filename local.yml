@@ -15,8 +15,6 @@
         brew: raycast
       - app: Slack.app
         brew: slack
-      - app: Sol.app
-        brew: sol
   pre_tasks:
     - name: Update Apt
       become: true
@@ -26,6 +24,12 @@
         state: present
       tags:
         - linux
+    - name: Update Arch
+      become: true
+      community.general.pacman:
+        upgrade: true
+      tags:
+        - arch
   tasks:
     - import_tasks: tasks/ssh.yml
     - import_tasks: tasks/homebrew.yml
