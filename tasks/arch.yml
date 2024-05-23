@@ -18,6 +18,7 @@
       - tree
       - watch
       - wget
+      - kubectl
       - zsh
       - zstd
       - direnv
