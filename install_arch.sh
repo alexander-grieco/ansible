@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
-yes | sudo pacman -S ansible stow neofetch
+# yes | sudo pacman -Sy ansible-core ansible stow neofetch
 
 ./apply.sh arch
