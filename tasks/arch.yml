@@ -30,6 +30,7 @@
       - tree-sitter
       - vim
       - dmenu
+      - base-devel
       # TODO: find replacements for these in Arch
       #- obsidian
       #- tflint
@@ -41,12 +42,22 @@
   tags:
     - arch
     - arch-test
+- name: install Yay
+  shell: |
+    git clone https://aur.archlinux.org/yay.git
+    cd yay
+    makepkg -si
+    cd ..
+    rm -rf yay
+  tags:
+    - arch
+    - arch-test
 - name: Install 1password
   shell: |
     curl -sS https://downloads.1password.com/linux/keys/1password.asc | gpg --import
     git clone https://aur.archlinux.org/1password.git
     cd 1password
-    makepkg -si
+    yes | makepkg -si
     cd ..
     rm -rf 1password
   tags:
