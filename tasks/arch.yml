@@ -2,46 +2,45 @@
   community.general.pacman:
     name:
       - alacritty
-      - obsidian
-      - asdf
       - coreutils
       - cowsay
       - curl
       - fzf
       - gnupg
       - gnutls
-      - golang
-      - grpcurl
+      - go
       - htop
       - jq
       - ripgrep
       - tree
-      - watch
       - wget
       - kubectl
       - zsh
       - zstd
       - direnv
       - docker
-      - docker-completion
       - fd
       - otf-comicshanns-nerd
-      - gnu-sed
       - lua
       - lua-language-server
       - neovim
-      - node
-      - pdsh
       - python
       - scdoc
-      - tflint
       - tmux
       - tree-sitter
       - vim
-      - yarn
+      - dmenu
+      # TODO: find replacements for these in Arch
+      #- obsidian
+      #- tflint
+      #- yarn
+      #- nodejs-lts-iron
     state: present
+  become_user: root
+  become: true
   tags:
     - arch
+    - arch-test
 - name: Install 1password
   shell: |
     curl -sS https://downloads.1password.com/linux/keys/1password.asc | gpg --import
