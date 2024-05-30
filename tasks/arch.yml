@@ -31,6 +31,8 @@
       - vim
       - dmenu
       - base-devel
+      - npm
+      - i3
       # TODO: find replacements for these in Arch
       #- obsidian
       #- tflint
@@ -49,6 +51,11 @@
     makepkg -si
     cd ..
     rm -rf yay
+  tags:
+    - arch
+- name: Yay install packages
+  shell: |
+    yes | yay -S picom polybar feh rofi
   tags:
     - arch
     - arch-test
