@@ -41,6 +41,7 @@
       - lua
       - lua-language-server
       - neovim
+      - nikitabobko/tap/aerospace
       - node
       - pdsh
       - python
