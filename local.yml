@@ -2,19 +2,6 @@
   vars:
     source_key: ./.ssh/github_ed25519
     dest_key: '{{ lookup(''env'', ''HOME'') }}/.ssh/github_ed25519'
-    applications_to_install:
-      - app: 1Password.app
-        brew: 1password
-      - app: Arc.app
-        brew: arc
-      - app: iTerm.app
-        brew: iterm2
-      - app: Obsidian.app
-        brew: obsidian
-      - app: Raycast.app
-        brew: raycast
-      - app: Slack.app
-        brew: slack
   pre_tasks:
     - name: Update Apt
       become: true
@@ -32,10 +19,7 @@
         - arch
   tasks:
     - import_tasks: tasks/ssh.yml
-    - import_tasks: tasks/homebrew.yml
     - import_tasks: tasks/arch.yml
     - import_tasks: tasks/rust.yml
-    - import_tasks: tasks/applications.yml
     - import_tasks: tasks/zsh-setup.yml
     - import_tasks: tasks/dotfiles.yml
-    - import_tasks: tasks/build-applications.yml
