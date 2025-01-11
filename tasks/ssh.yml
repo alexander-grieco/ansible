@@ -25,6 +25,15 @@
     - dotfiles
     - install
     - ssh
+- name: Copy ssh config file
+  copy:
+    src: '{{ source_config }}'
+    dest: '{{ dest_config }}'
+    mode: 0644
+  tags:
+    - dotfiles
+    - install
+    - ssh
 # Adds all .pub keys to USER's authorized keys
 - name: Set authorized key took from file
   authorized_key:

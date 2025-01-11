@@ -2,6 +2,8 @@
   vars:
     source_key: ./.ssh/github_ed25519
     dest_key: '{{ lookup(''env'', ''HOME'') }}/.ssh/github_ed25519'
+    source_config: ./.ssh/config
+    dest_config: '{{ lookup(''env'', ''HOME'') }}/.ssh/config'
   pre_tasks:
     - name: Update Apt
       become: true

@@ -15,6 +15,9 @@
       - gnupg
       - gnutls
       - golang
+      - kubectl
+      - zoxide
+      - stow
       - grpcurl
       - htop
       - jq
