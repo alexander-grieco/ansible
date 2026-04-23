@@ -1,9 +1,11 @@
 - hosts: localhost
   vars:
     source_key: ./.ssh/github_ed25519
-    dest_key: '{{ lookup(''env'', ''HOME'') }}/.ssh/github_ed25519'
+    dest_key: "{{ lookup('env', 'HOME') }}/.ssh/github_ed25519"
     source_config: ./.ssh/config
-    dest_config: '{{ lookup(''env'', ''HOME'') }}/.ssh/config'
+    dest_config: "{{ lookup('env', 'HOME') }}/.ssh/config"
+    wireguard_source: ./.wg/laptop
+    wireguard_dest: "{{ lookup('env', 'HOME') }}/.wg/laptop"
   pre_tasks:
     - name: Update Apt
       become: true
@@ -20,6 +22,7 @@
       tags:
         - arch
   tasks:
+    - import_tasks: tasks/wireguard-fp.yml
     - import_tasks: tasks/ssh.yml
     - import_tasks: tasks/arch.yml
     - import_tasks: tasks/rust.yml
