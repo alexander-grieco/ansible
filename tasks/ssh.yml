@@ -4,7 +4,6 @@
     mode: "0700"
     state: directory
   tags:
-    - dotfiles
     - install
     - ssh
 - name: Install ssh key
@@ -13,7 +12,6 @@
     dest: '{{ dest_key }}'
     mode: "0600"
   tags:
-    - dotfiles
     - install
     - ssh
 - name: Install ssh key public
@@ -22,7 +20,6 @@
     dest: '{{ dest_key }}.pub'
     mode: "0644"
   tags:
-    - dotfiles
     - install
     - ssh
 - name: Copy ssh config file
@@ -31,7 +28,6 @@
     dest: '{{ dest_config }}'
     mode: "0644"
   tags:
-    - dotfiles
     - install
     - ssh
 # Adds all .pub keys to USER's authorized keys
@@ -42,6 +38,5 @@
     key: '{{ item }}'
   with_file: "{{ lookup('ansible.builtin.fileglob', '~/.ssh/*.pub').split(',') }}"
   tags:
-    - dotfiles
     - install
     - ssh

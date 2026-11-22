@@ -13,4 +13,4 @@ then
 fi
 
 # run ansible playbook with mac,dotfiles tags
-./apply.sh mac
+./apply.sh dotfiles,mac
